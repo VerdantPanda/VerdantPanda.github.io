@@ -46,15 +46,22 @@ function App() {
           pad="small"
           align="center"
         >
-          <Box align="center" fill={{ horizontal: true }}>
+          <Box
+            align="center"
+            fill={{ horizontal: true }}
+            animation={{ type: 'slideUp' }}
+          >
             <Heading textAlign="center" weight={300}>
               hi, i'm ibrahim fagbamila!{' '}
               <Box animation={{ type: 'jiggle', duration: 500 }}>👋</Box>
             </Heading>
           </Box>
+          <Box animation={{ type: 'slideUp' }}>
+            <Social />
+          </Box>
 
           <Grid
-            rows={['medium', 'medium', 'small']}
+            rows={['medium', '470px']}
             columns={['medium', 'medium', 'xsmall']}
             gap="small"
             areas={[
@@ -63,7 +70,7 @@ function App() {
               // { name: 'main', start: [1, 1], end: [1, 1] },
               { name: 'about', start: [0, 0], end: [1, 0] },
               { name: 'pic', start: [1, 0], end: [2, 0] },
-              { name: 'social', start: [0, 2], end: [2, 2] },
+
               { name: 'experience', start: [0, 1], end: [0, 1] },
               { name: 'skills', start: [1, 1], end: [2, 1] },
             ]}
@@ -71,19 +78,16 @@ function App() {
             {/* <Box gridArea="header" background="brand" />
             <Box gridArea="nav" background="light-5" />
             <Box gridArea="main" background="light-2" /> */}
-            <Box gridArea="about">
+            <Box gridArea="about" animation={{ type: 'slideUp' }}>
               <Bio />
             </Box>
-            <Box gridArea="pic">
+            <Box gridArea="pic" animation={{ type: 'slideUp' }}>
               <ProfilePic />
             </Box>
-            <Box gridArea="social" align="center">
-              <Social />
-            </Box>
-            <Box gridArea="experience">
+            <Box gridArea="experience" animation={{ type: 'slideUp' }}>
               <Experience />
             </Box>
-            <Box gridArea="skills">
+            <Box gridArea="skills" animation={{ type: 'slideUp' }}>
               <Skills />
             </Box>
           </Grid>
