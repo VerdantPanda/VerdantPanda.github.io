@@ -17,6 +17,8 @@ import {
   Button,
   Accordion,
   AccordionPanel,
+  Grid,
+  Tag,
 } from 'grommet';
 
 function App() {
@@ -42,16 +44,51 @@ function App() {
           }}
           // background="doc"
           pad="small"
+          align="center"
         >
-          <Heading textAlign="center" weight={300}>
-            hi, i'm ibrahim fagbamila!
-          </Heading>
+          <Box align="center" fill={{ horizontal: true }}>
+            <Heading textAlign="center" weight={300}>
+              hi, i'm ibrahim fagbamila!{' '}
+              <Box animation={{ type: 'jiggle', duration: 500 }}>👋</Box>
+            </Heading>
+          </Box>
 
-          <ProfilePic />
-          <Bio />
-          <Social />
-          <Experience />
-          <Skills />
+          <Grid
+            rows={['medium', 'medium', 'small']}
+            columns={['medium', 'medium', 'xsmall']}
+            gap="small"
+            areas={[
+              // { name: 'header', start: [0, 0], end: [1, 0] },
+              // { name: 'nav', start: [0, 1], end: [0, 1] },
+              // { name: 'main', start: [1, 1], end: [1, 1] },
+              { name: 'about', start: [0, 0], end: [1, 0] },
+              { name: 'pic', start: [1, 0], end: [2, 0] },
+              { name: 'social', start: [0, 2], end: [2, 2] },
+              { name: 'experience', start: [0, 1], end: [0, 1] },
+              { name: 'skills', start: [1, 1], end: [2, 1] },
+            ]}
+          >
+            {/* <Box gridArea="header" background="brand" />
+            <Box gridArea="nav" background="light-5" />
+            <Box gridArea="main" background="light-2" /> */}
+            <Box gridArea="about">
+              <Bio />
+            </Box>
+            <Box gridArea="pic">
+              <ProfilePic />
+            </Box>
+            <Box gridArea="social" align="center">
+              <Social />
+            </Box>
+            <Box gridArea="experience">
+              <Experience />
+            </Box>
+            <Box gridArea="skills">
+              <Skills />
+            </Box>
+          </Grid>
+
+          {/* <Projects /> */}
         </Box>
 
         <Footer background="brand" pad="small">
@@ -65,7 +102,10 @@ function App() {
 function Bio() {
   return (
     <Box margin="small">
-      <Card background="blanchedalmond" pad="small">
+      <Card background="blanchedalmond" pad="small" width="auto" height="auto">
+        <CardHeader>
+          <Heading level={2}>About Me:</Heading>
+        </CardHeader>
         <Text>
           I am a current student at the{' '}
           <Anchor
@@ -89,8 +129,8 @@ function Bio() {
         <br></br>
         <Text>
           Originally from <b>Florida</b> and culturally <b>Yoruba</b>. I enjoy
-          spicy foods 🌶️, running 🏃🏿💨, and sleeping at 1am after an spending
-          hours down long Wikipedia rabbit hole. 🥲
+          spicy foods 🌶️, running 🏃🏿💨, learning languages 🗣️, and sleeping at
+          1am after an spending hours down long Wikipedia rabbit hole. 🥲
         </Text>
       </Card>
     </Box>
@@ -127,7 +167,7 @@ function Social() {
 
 function Experience() {
   const lablel1 = (
-    <Text size="small">
+    <Text size="medium">
       3x Software Engineering Intern @{' '}
       <Anchor target="_blank" href="https://www.meta.com/">
         Meta
@@ -136,8 +176,8 @@ function Experience() {
   );
 
   const lablel2 = (
-    <Text size="small">
-      1x Software Engineering Intern @{' '}
+    <Text size="medium">
+      Software Engineering Intern @{' '}
       <Anchor target="_blank" href="https://www.datamaxx.com/">
         Datamaxx Group
       </Anchor>
@@ -145,7 +185,7 @@ function Experience() {
   );
 
   const lablel3 = (
-    <Text size="small">
+    <Text size="medium">
       Teaching Assistant for{' '}
       <Anchor target="_blank" href="https://www.cis.upenn.edu/~cis5570/">
         CIS 557: Programming for the Web
@@ -160,12 +200,13 @@ function Experience() {
         pad="small"
         width="medium"
         height="auto"
+        overflow="scroll"
       >
         <CardHeader>
           <Heading level={2}>Experience:</Heading>
         </CardHeader>
         <Accordion>
-          <AccordionPanel label={lablel1}>
+          <AccordionPanel label="3x Software Engineering Intern @ Meta">
             <Text size="small">
               TODO: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
               do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -174,20 +215,20 @@ function Experience() {
             </Text>
           </AccordionPanel>
 
-          <AccordionPanel label={lablel2}>
+          <AccordionPanel label="SWE Intern @ Datamaxx Group">
             <Text size="small">
-              TODO: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-              do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Worked on the development team for REDTAIL, a web app for security
+              and visitor screenings. The internship focused on using
+              Microsoft's ASP.NET Razor MVC.
             </Text>
           </AccordionPanel>
-          <AccordionPanel label={lablel3}>
+          <AccordionPanel label="Teaching Assistant @ UPenn">
             <Text size="small">
-              TODO: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-              do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Acted as a PM/mentor for three teams of students to guide each
+              team to build and deploy a full-stack web app using React, NodeJS,
+              Heroku, AWS, and either MongoDB or MySQL. Additionally, hosted
+              office hours to help students debug code and better understand web
+              development concepts and best practices.
             </Text>
           </AccordionPanel>
         </Accordion>
@@ -208,8 +249,8 @@ function ProfilePic() {
         size: 'large',
       }}
       flex="shrink"
-      height="small"
-      width="small"
+      height="auto"
+      width="auto"
       margin="small"
     >
       <Image fill src={logo} />
@@ -226,7 +267,56 @@ function Skills() {
         width="medium"
         height="auto"
       >
-        <Text>Lorem </Text>
+        <CardHeader>
+          <Heading level={2}>Skills:</Heading>
+        </CardHeader>
+        <CardBody>
+          <Box>
+            <Accordion>
+              <AccordionPanel label="Full Stack Web Development">
+                <Text size="small">
+                  TODO: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua.
+                </Text>
+              </AccordionPanel>
+              <AccordionPanel label="Java">
+                <Text size="small">
+                  TODO: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua.
+                </Text>
+              </AccordionPanel>
+              <AccordionPanel label="Project Management Software">
+                <Text size="small">
+                  TODO: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua.
+                </Text>
+              </AccordionPanel>
+            </Accordion>
+          </Box>
+        </CardBody>
+      </Card>
+    </Box>
+  );
+}
+
+function Projects() {
+  return (
+    <Box margin="small">
+      <Card
+        background="blanchedalmond"
+        pad="small"
+        width="medium"
+        height="auto"
+      >
+        <CardHeader>
+          <Heading level={2}>Projects:</Heading>
+        </CardHeader>
+        <CardBody>
+          <Text>Lorem </Text>
+        </CardBody>
       </Card>
     </Box>
   );
