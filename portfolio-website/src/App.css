@@ -37,6 +37,11 @@
   }
 }
 
+img{
+  pointer-events: none;
+}
+
 #notReal{
 background-color: blanchedalmond;
+
 }
