@@ -1,5 +1,12 @@
 import './App.css';
 import logo from './assets/ibrahim.png';
+import bgImg from './assets/Workspaces-1.png';
+
+import manatee from './assets/manatee.png';
+import insta from './assets/insta.png';
+import nyc from './assets/nyc.png';
+import seattle from './assets/seattle.png';
+import apollo from './assets/apollo.png';
 
 import MovingText from 'react-moving-text';
 import {
@@ -28,7 +35,7 @@ function App() {
           colors: { doc: 'blanchedalmond' },
         },
       }}
-      full="min"
+      // full="min"
       // full
     >
       <Main fill>
@@ -36,7 +43,8 @@ function App() {
           fill
           background={{
             image:
-              'url(https://cdn.shopify.com/s/files/1/0285/1316/products/w0245_1s_Art-Deco-Hexagonal-Pattern-Wallpaper-for-Walls-F.-Scott-Fitzgerald_For-Workspaces-1.jpg?)',
+              // 'url(https://cdn.shopify.com/s/files/1/0285/1316/products/w0245_1s_Art-Deco-Hexagonal-Pattern-Wallpaper-for-Walls-F.-Scott-Fitzgerald_For-Workspaces-1.jpg?)',
+              `url(${bgImg})`,
             size: 'cover',
             rotate: 45,
             opacity: 'medium',
@@ -161,17 +169,24 @@ function Social() {
             label="twitter"
             href="https://twitter.com/ifgbmila"
           />
-          {'•'}
+          {' • '}
           <Anchor
             label="linkedin"
             target="_blank"
             href="https://www.linkedin.com/in/ibrahimfagbamila/"
           />
-          {'•'}
+          {' • '}
+
           <Anchor
             label="resume"
             target="_blank"
             href="https://drive.google.com/file/d/1DuC4Y4gd0fbRXlTUVlgQpdA6_c7KyyEH/view?usp=sharing"
+          />
+          {' • '}
+          <Anchor
+            label="github"
+            target="_blank"
+            href="https://github.com/VerdantPanda/"
           />
         </Text>
       </Card>
@@ -290,7 +305,7 @@ function ProfilePic() {
       }}
       flex="shrink"
       width="medium"
-      height="auto"
+      height="medium"
       margin="small"
     >
       <Image fill src={logo} />
@@ -404,24 +419,11 @@ function Adventure() {
         <CardBody>
           <Box border={{ color: 'brand', size: 'large' }}>
             <Carousel fill>
-              <Image
-                fit="cover"
-                src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/287427469_4629920097109941_910934674462748158_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_ohc=dRobbu6uJlUAX8PNMpG&_nc_ht=scontent-iad3-1.xx&oh=00_AfAmvRVsDJ_Q5S7_AvGLQclNA3hHrldnYut5mJFz3Og5OQ&oe=63EE2424"
-              />
-              <Image
-                fit="cover"
-                src="https://scontent-iad3-1.xx.fbcdn.net/v/t1.6435-9/68423303_1986500828118561_5362073696175390720_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=le_Ly_eSpUEAX-jPSQJ&_nc_ht=scontent-iad3-1.xx&oh=00_AfDKX5a61YQrbAID6Au-Gy_vEFyRsYEr5VPfb_8XBj7SrQ&oe=6410CBA9"
-              />
-
-              <Image
-                fit="cover"
-                src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/322059191_722269332814403_1163061333308401994_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=j081Uu3OppoAX8urVcZ&_nc_oc=AQnyUzvuqyTMYsFJe6AT2sJBcxo2A9ZiqMltdYVWnKmzwY_mRWbZQvAW2ax8Ex3LlgBODLzwOdmd3f0IkAc33jkq&_nc_ht=scontent-iad3-1.xx&oh=00_AfBDKCSJ9YMTsElU6jpcONOV9dR2eJ4nebvnmkj7i5tg4Q&oe=63EF676D"
-              />
-              <Image
-                fit="cover"
-                src="https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-6/287289235_4629920103776607_5089856737035507770_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=N_mznpJVVUgAX8ATeQd&_nc_ht=scontent-iad3-1.xx&oh=00_AfCxMyCpIoZ_ZxeiadMHQDjiwbYGgqfmCwoPRgyW8l5Pqg&oe=63EDA366"
-              />
-              {/* <Image fit="cover" src="" /> */}
+              <Image fit="cover" src={seattle} />
+              <Image fit="cover" src={insta} />
+              <Image fit="cover" src={manatee} />
+              <Image fit="cover" src={nyc} />
+              <Image fit="cover" src={apollo} />
             </Carousel>
           </Box>
         </CardBody>
