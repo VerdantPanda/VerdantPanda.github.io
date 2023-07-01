@@ -1,5 +1,7 @@
 import './App.css';
-import logo from './assets/ibrahim.png';
+// import logo from './assets/ibrahim.png';
+import logo from './assets/IMG_4545.png';
+
 import bgImg from './assets/Workspaces-1.png';
 
 import manatee from './assets/manatee.png';
@@ -296,17 +298,19 @@ function ProfilePic() {
   return (
     <Box
       alignSelf="center"
-      round="full"
+      // round="full"
+      round='large'
       overflow={'hidden'}
-      animation={{ type: 'jiggle', duration: 3000 }}
+      animation={{ type: 'fadeIn', duration: 3000 }}
       border={{
         side: 'all',
         size: 'large',
       }}
       flex="shrink"
-      width="medium"
-      height="medium"
+      width="large"
+      height="large"
       margin="small"
+      
     >
       <Image fill src={logo} />
       {/* <Image src="https://lh5.ggpht.com/_S0f-AWxKVdM/S5TpU6kRmUI/AAAAAAAAL4Y/wrjx3_23kw4/d_silhouette%5B2%5D.jpg" /> */}
